@@ -6,7 +6,7 @@ Udacity Robotics Software Engineer, project 2. A differential-drive robot with a
 catkin_ws/src/
 ├── my_robot/                  robot model, world, launch files
 │   ├── launch/                world.launch, robot_description.launch
-│   ├── meshes/                hokuyo.dae (fetched in the VM, see below)
+│   ├── meshes/                hokuyo.dae
 │   ├── rviz/                  my_robot.rviz
 │   ├── urdf/                  my_robot.xacro, my_robot.gazebo
 │   └── worlds/                the Building Editor world with my_ball
@@ -35,7 +35,6 @@ Inertia comes from solid-body formulas, and the casters reach the ground exactly
 
 ```bash
 cp -r catkin_ws/src/my_robot catkin_ws/src/ball_chaser ~/catkin_ws/src/
-wget https://s3-us-west-1.amazonaws.com/udacity-robotics/hokuyo.dae -P ~/catkin_ws/src/my_robot/meshes/
 cd ~/catkin_ws && catkin_make && source devel/setup.bash
 ```
 
