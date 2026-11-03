@@ -1,0 +1,192 @@
+<?xml version="1.0" ?>
+<!--
+  Two-room building in the Building Editor's saved layout (a static "building" model of Wall_N links).
+  Interior: west room (robot Start Pose), east room, east entrance. my_ball waits outside, hidden by the walls.
+  Nothing here may render pure white: the walls use an explicit beige with no specular, so only the Ball is (255,255,255).
+-->
+<sdf version="1.6">
+  <world name="default">
+
+    <include>
+      <uri>model://ground_plane</uri>
+    </include>
+
+    <!-- Light source -->
+    <include>
+      <uri>model://sun</uri>
+    </include>
+
+    <scene>
+      <ambient>0.4 0.4 0.4 1</ambient>
+      <background>0.7 0.7 0.7 1</background>
+      <shadows>1</shadows>
+    </scene>
+
+    <model name="building">
+      <pose>0 0 0 0 0 0</pose>
+      <static>1</static>
+
+      <!-- North wall -->
+      <link name="Wall_0">
+        <pose>0 3 0 0 0 0</pose>
+        <collision name="Wall_0_Collision">
+          <geometry><box><size>8.15 0.15 1</size></box></geometry>
+          <pose>0 0 0.5 0 0 0</pose>
+        </collision>
+        <visual name="Wall_0_Visual">
+          <pose>0 0 0.5 0 0 0</pose>
+          <geometry><box><size>8.15 0.15 1</size></box></geometry>
+          <material>
+            <ambient>0.45 0.4 0.35 1</ambient>
+            <diffuse>0.6 0.55 0.5 1</diffuse>
+            <specular>0 0 0 1</specular>
+          </material>
+        </visual>
+      </link>
+
+      <!-- South wall -->
+      <link name="Wall_1">
+        <pose>0 -3 0 0 0 0</pose>
+        <collision name="Wall_1_Collision">
+          <geometry><box><size>8.15 0.15 1</size></box></geometry>
+          <pose>0 0 0.5 0 0 0</pose>
+        </collision>
+        <visual name="Wall_1_Visual">
+          <pose>0 0 0.5 0 0 0</pose>
+          <geometry><box><size>8.15 0.15 1</size></box></geometry>
+          <material>
+            <ambient>0.45 0.4 0.35 1</ambient>
+            <diffuse>0.6 0.55 0.5 1</diffuse>
+            <specular>0 0 0 1</specular>
+          </material>
+        </visual>
+      </link>
+
+      <!-- East wall, north of the 1.2 m entrance -->
+      <link name="Wall_2">
+        <pose>4 1.8 0 0 0 0</pose>
+        <collision name="Wall_2_Collision">
+          <geometry><box><size>0.15 2.4 1</size></box></geometry>
+          <pose>0 0 0.5 0 0 0</pose>
+        </collision>
+        <visual name="Wall_2_Visual">
+          <pose>0 0 0.5 0 0 0</pose>
+          <geometry><box><size>0.15 2.4 1</size></box></geometry>
+          <material>
+            <ambient>0.45 0.4 0.35 1</ambient>
+            <diffuse>0.6 0.55 0.5 1</diffuse>
+            <specular>0 0 0 1</specular>
+          </material>
+        </visual>
+      </link>
+
+      <!-- East wall, south of the entrance -->
+      <link name="Wall_3">
+        <pose>4 -1.8 0 0 0 0</pose>
+        <collision name="Wall_3_Collision">
+          <geometry><box><size>0.15 2.4 1</size></box></geometry>
+          <pose>0 0 0.5 0 0 0</pose>
+        </collision>
+        <visual name="Wall_3_Visual">
+          <pose>0 0 0.5 0 0 0</pose>
+          <geometry><box><size>0.15 2.4 1</size></box></geometry>
+          <material>
+            <ambient>0.45 0.4 0.35 1</ambient>
+            <diffuse>0.6 0.55 0.5 1</diffuse>
+            <specular>0 0 0 1</specular>
+          </material>
+        </visual>
+      </link>
+
+      <!-- West wall -->
+      <link name="Wall_4">
+        <pose>-4 0 0 0 0 0</pose>
+        <collision name="Wall_4_Collision">
+          <geometry><box><size>0.15 6 1</size></box></geometry>
+          <pose>0 0 0.5 0 0 0</pose>
+        </collision>
+        <visual name="Wall_4_Visual">
+          <pose>0 0 0.5 0 0 0</pose>
+          <geometry><box><size>0.15 6 1</size></box></geometry>
+          <material>
+            <ambient>0.45 0.4 0.35 1</ambient>
+            <diffuse>0.6 0.55 0.5 1</diffuse>
+            <specular>0 0 0 1</specular>
+          </material>
+        </visual>
+      </link>
+
+      <!-- Interior partition, north of the 1.8 m doorway -->
+      <link name="Wall_5">
+        <pose>0 1.95 0 0 0 0</pose>
+        <collision name="Wall_5_Collision">
+          <geometry><box><size>0.15 2.1 1</size></box></geometry>
+          <pose>0 0 0.5 0 0 0</pose>
+        </collision>
+        <visual name="Wall_5_Visual">
+          <pose>0 0 0.5 0 0 0</pose>
+          <geometry><box><size>0.15 2.1 1</size></box></geometry>
+          <material>
+            <ambient>0.35 0.4 0.45 1</ambient>
+            <diffuse>0.45 0.5 0.6 1</diffuse>
+            <specular>0 0 0 1</specular>
+          </material>
+        </visual>
+      </link>
+
+      <!-- Interior partition, south of the doorway -->
+      <link name="Wall_6">
+        <pose>0 -1.95 0 0 0 0</pose>
+        <collision name="Wall_6_Collision">
+          <geometry><box><size>0.15 2.1 1</size></box></geometry>
+          <pose>0 0 0.5 0 0 0</pose>
+        </collision>
+        <visual name="Wall_6_Visual">
+          <pose>0 0 0.5 0 0 0</pose>
+          <geometry><box><size>0.15 2.1 1</size></box></geometry>
+          <material>
+            <ambient>0.35 0.4 0.45 1</ambient>
+            <diffuse>0.45 0.5 0.6 1</diffuse>
+            <specular>0 0 0 1</specular>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- The Ball: radius 0.1, white in ambient/diffuse/specular/emissive as in the lesson -->
+    <model name="my_ball">
+      <pose>6 2.5 0.1 0 0 0</pose>
+      <link name="link">
+        <inertial>
+          <mass>0.1</mass>
+          <inertia>
+            <ixx>0.0004</ixx><ixy>0</ixy><ixz>0</ixz>
+            <iyy>0.0004</iyy><iyz>0</iyz>
+            <izz>0.0004</izz>
+          </inertia>
+        </inertial>
+        <collision name="collision">
+          <geometry><sphere><radius>0.1</radius></sphere></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><sphere><radius>0.1</radius></sphere></geometry>
+          <material>
+            <ambient>1 1 1 1</ambient>
+            <diffuse>1 1 1 1</diffuse>
+            <specular>1 1 1 1</specular>
+            <emissive>1 1 1 1</emissive>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- World camera -->
+    <gui fullscreen='0'>
+      <camera name='world_camera'>
+        <pose>-1.5 -9 8 0 0.75 1.4</pose>
+        <view_controller>orbit</view_controller>
+      </camera>
+    </gui>
+
+  </world>
+</sdf>
